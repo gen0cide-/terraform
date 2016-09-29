@@ -1177,8 +1177,7 @@ resource "azurerm_virtual_machine" "test" {
 }
 `
 
-var testAccAzureRMVirtualMachine_
-sticsProfile = `
+var testAccAzureRMVirtualMachine_diagnosticsProfile = `
 resource "azurerm_resource_group" "test" {
     name = "acctestrg-%d"
     location = "West US"
