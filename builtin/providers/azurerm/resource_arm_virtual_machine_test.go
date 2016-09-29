@@ -1177,7 +1177,8 @@ resource "azurerm_virtual_machine" "test" {
 }
 `
 
-var testAccAzureRMVirtualMachine_diagnosticsProfile = `
+var testAccAzureRMVirtualMachine_
+sticsProfile = `
 resource "azurerm_resource_group" "test" {
     name = "acctestrg-%d"
     location = "West US"
@@ -1254,13 +1255,11 @@ resource "azurerm_virtual_machine" "test" {
 	admin_password = "Password1234!"
     }
 
-    diagnostics_profile {
-	boot_diagnostics {
-	    enabled = true
-    	    storage_uri = "${azurerm_storage_account.test.primary_blob_endpoint}"
-	}
+    boot_diagnostics {
+        enabled = true
+        storage_uri = "${azurerm_storage_account.test.primary_blob_endpoint}"
     }
-
+    
     os_profile_windows_config {
         winrm {
 	  protocol = "http"
